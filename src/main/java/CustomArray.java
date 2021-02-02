@@ -9,14 +9,16 @@ public class CustomArray {
     }
 
     public void insertInPosition(int pos, int value){
-        int[] newArray = array.clone();
-        array = new int[newArray.length+1];
-        for(int i = 0; i  < pos; i++){
-            array[i] = newArray[i];
-        }
-        array[pos]=value;
-        for (int i = pos ; i <= newArray.length-1; i++){
-           array[i + 1] = newArray[i];
+        if(pos<=(array.length-1)){
+            int[] newArray = array.clone();
+            array = new int[newArray.length+1];
+            for(int i = 0; i  < pos; i++){
+                array[i] = newArray[i];
+            }
+            array[pos]=value;
+            for (int i = pos ; i <= newArray.length-1; i++){
+                array[i + 1] = newArray[i];
+            }
         }
     }
 
@@ -25,13 +27,15 @@ public class CustomArray {
     }
 
     public void  deleteInPosition(int pos){
-        int[] newArray = array.clone();
-        array = new int[newArray.length-1];
-        for(int i = 0; i  < pos; i++){
-            array[i] = newArray[i];
-        }
-        for (int i = pos + 1; i <= newArray.length-1; i++){
-            array[i - 1] = newArray[i];
+        if(pos<=(array.length-1)){
+            int[] newArray = array.clone();
+            array = new int[newArray.length-1];
+            for(int i = 0; i  < pos; i++){
+                array[i] = newArray[i];
+            }
+            for (int i = pos + 1; i <= newArray.length-1; i++){
+                array[i - 1] = newArray[i];
+            }
         }
     }
 
@@ -42,7 +46,9 @@ public class CustomArray {
     }
 
     public void updateInPosition(int pos, int value){
-        array[pos]=value;
+        if(pos<=(array.length-1)){
+            array[pos]=value;
+        }
     }
 
     public int finde (String arg){
